@@ -1,7 +1,7 @@
 function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 class Binar {
@@ -28,10 +28,10 @@ class Binar {
       cars = this.populateCars(cacheCars);
     } else {
       const response = await fetch(
-        "https://raw.githubusercontent.com/fnurhidayat/probable-garbanzo/main/data/cars.min.json"
+        "./assets/dataset/cars.min.json"
       );
       const body = await response.json();
-      cars = this.populateCars(body)
+      cars = this.populateCars(body);
 
       localStorage.setItem("CARS", JSON.stringify(cars));
     }

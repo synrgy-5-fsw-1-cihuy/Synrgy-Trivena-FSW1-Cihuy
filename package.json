@@ -8,5 +8,13 @@
   "private": false,
   "scripts": {
     "start": "nodemon server/index.js"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/synrgy-5-fsw-1-cihuy/Synrgy-Trivena-FSW1-Cihuy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/synrgy-5-fsw-1-cihuy/Synrgy-Trivena-FSW1-Cihuy/issues"
+  },
+  "homepage": "https://github.com/synrgy-5-fsw-1-cihuy/Synrgy-Trivena-FSW1-Cihuy#readme"
 }
