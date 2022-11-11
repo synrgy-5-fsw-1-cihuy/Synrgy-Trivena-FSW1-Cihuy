@@ -4,7 +4,6 @@ const http = require("http");
 const fs = require("fs");
 const url = require("url");
 const path = require("path");
-
 const PUBLIC_DIR = path.join(__dirname, "../public");
 
 const { PORT = 8000 } = process.env;
@@ -27,6 +26,7 @@ function onRequest(request, response) {
             response.writeHead(200);
             response.end(htmlReaderFile("cari_mobil.html"));
             return;
+
         default:
             const fileTypes = {
                 css: "text/css",
@@ -69,7 +69,7 @@ function onRequest(request, response) {
 // Server instance
 const server = http.createServer(onRequest);
 
-// Listen Port
+// Listen port nya
 server.listen(PORT, "localhost", () => {
     console.log(`Server running at http://localhost:${PORT}`);
 });

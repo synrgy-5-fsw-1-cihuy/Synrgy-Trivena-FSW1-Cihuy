@@ -9,6 +9,11 @@
   "scripts": {
     "start": "nodemon server/index.js"
   },
+  "dependencies": {
+    "node-static": "^0.7.11",
+    "nodemon": "^2.0.20",
+    "url": "^0.11.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/synrgy-5-fsw-1-cihuy/Synrgy-Trivena-FSW1-Cihuy.git"

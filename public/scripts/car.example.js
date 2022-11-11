@@ -67,6 +67,7 @@ class Car {
     `;
   }
 }
+
   // `
     //   <p>id: <b>${this.id}</b></p>
     //   <p>plate: <b>${this.plate}</b></p>

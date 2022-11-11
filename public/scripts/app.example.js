@@ -2,15 +2,16 @@ class App {
   constructor() {
     // this.clearButton = document.getElementById("clear-btn");
     // this.loadButton = document.getElementById("load-btn");
+
     this.carContainerElement = document.getElementById("cars-container");
   }
 
   async init(filterer) {
     await this.load(filterer);
-
     // Register click listener
     // this.clearButton.onclick = this.clear;
     // this.loadButton.onclick = this.run;
+
   }
 
   run = () => {
@@ -23,8 +24,8 @@ class App {
     });
   };
 
-  async load() {
-    const cars = await Binar.listCars();
+  async load(filterer) {
+    let cars = await Binar.listCars(filterer);
     Car.init(cars);
   }
 
