@@ -1,4 +1,4 @@
-## Cars Management API
+### Cars Management API
 #### Endpoint
 ##### METHOD GET :
 - '/api/cars' - get all cars
@@ -11,7 +11,7 @@
 - '/api/cars/[id]' - update partial car object based on **id**
 ##### METHOD DELETE :
 - '/api/cars/[id]' - delete car object based on **id**
-#
+
 #### Database (PostgreSQL)
 ##### Attributes
 - plate: varchar
