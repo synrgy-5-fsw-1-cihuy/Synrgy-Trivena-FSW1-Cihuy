@@ -1,13 +1,13 @@
 {
-  "name": "learn-express",
+  "name": "synrgy-trivena-fsw1-cihuy",
   "version": "1.0.0",
-  "description": "",
+  "description": "- '/api/cars' - get all cars - '/api/cars/[id]' - get one car based on **id** ##### METHOD POST : - '/api/cars' - insert car ##### METHOD PUT : - '/api/cars/[id]' - update full car object based on **id** ##### METHOD PATCH : - '/api/cars/[id]' - update partial car object based on **id** ##### METHOD DELETE : - '/api/cars/[id]' - delete car object based on **id** # ### Database (PostgreSQL) ##### Attributes - plate: varchar - manufacture: varchar - model: varchar - image: varchar - rentPerDay: integer - capacity: integer - description: varchar - availableAt: timestamptz - transmission: varchar - available: boolean - type: varchar - year: integer",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "trivena",
   "license": "ISC",
   "dependencies": {
     "cloudinary": "^1.32.0",
@@ -25,5 +25,13 @@
     "@types/node": "^18.11.9",
     "ts-node-dev": "^2.0.0",
     "typescript": "^4.8.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/synrgy-5-fsw-1-cihuy/Synrgy-Trivena-FSW1-Cihuy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/synrgy-5-fsw-1-cihuy/Synrgy-Trivena-FSW1-Cihuy/issues"
+  },
+  "homepage": "https://github.com/synrgy-5-fsw-1-cihuy/Synrgy-Trivena-FSW1-Cihuy#readme"
 }

@@ -37,7 +37,7 @@ router.post('/', async (req, res) => {
     let fields = req.fields
     let files = req.files
 
-    if(fields.plate == undefined || fields.manufacture == undefined || fields.model == undefined || fields.rent_per_day == undefined || fields.capacity == undefined || fields.description == undefined || fields.available_at == undefined || fields.transmission == undefined || fields.available == undefined || fields.type == undefined || fields.year == undefined || files.image == undefined) {
+    if (fields.plate == undefined || fields.manufacture == undefined || fields.model == undefined || fields.rent_per_day == undefined || fields.capacity == undefined || fields.description == undefined || fields.available_at == undefined || fields.transmission == undefined || fields.available == undefined || fields.type == undefined || fields.year == undefined || files.image == undefined) {
         res.end("Data not complete.")
         return
     }
@@ -77,7 +77,7 @@ router.put('/:id', async (req, res) => {
     let files = req.files
     let params = req.params
 
-    if(fields.plate == undefined || fields.manufacture == undefined || fields.model == undefined || fields.rent_per_day == undefined || fields.capacity == undefined || fields.description == undefined || fields.available_at == undefined || fields.transmission == undefined || fields.available == undefined || fields.type == undefined || fields.year == undefined || files.image == undefined) {
+    if (fields.plate == undefined || fields.manufacture == undefined || fields.model == undefined || fields.rent_per_day == undefined || fields.capacity == undefined || fields.description == undefined || fields.available_at == undefined || fields.transmission == undefined || fields.available == undefined || fields.type == undefined || fields.year == undefined || files.image == undefined) {
         res.end("Data not complete.")
         return
     }
@@ -94,7 +94,7 @@ router.put('/:id', async (req, res) => {
     }
 
     let filename = carData.image.split('/').at(-2) + '/' + carData.image.split('/').at(-1).split('.')[0]
-    
+
     carData.rentPerDay = fields.rent_per_day
     carData.capacity = fields.capacity
     carData.description = fields.description
@@ -120,9 +120,9 @@ router.put('/:id', async (req, res) => {
                 'id': params.id
             }
         })
-        
+
         await cloudinaryConfig.uploader.destroy(filename)
-        
+
         res.json(carData)
         return
     })
@@ -139,75 +139,75 @@ router.patch('/:id', async (req, res) => {
             'id': params.id
         }
     })
-    
+
     if (carData == null) {
         res.end('Car not found.')
         return
     }
-    
+
     let filename = carData.image.split('/').at(-2) + '/' + carData.image.split('/').at(-1).split('.')[0]
 
-    if(fields.plate != undefined) {
+    if (fields.plate != undefined) {
         carData.plate = fields.plate
     }
 
-    if(fields.manufacture != undefined) {
+    if (fields.manufacture != undefined) {
         carData.manufacture = fields.manufacture
     }
 
-    if(fields.model != undefined) {
+    if (fields.model != undefined) {
         carData.model = fields.model
     }
 
-    if(fields.rent_per_day != undefined) {
+    if (fields.rent_per_day != undefined) {
         carData.rentPerDay = fields.rent_per_day
     }
 
-    if(fields.capacity != undefined) {
+    if (fields.capacity != undefined) {
         carData.capacity = fields.capacity
     }
 
-    if(fields.description != undefined) {
+    if (fields.description != undefined) {
         carData.description = fields.description
     }
 
-    if(fields.available_at != undefined) {
+    if (fields.available_at != undefined) {
         carData.availableAt = fields.available_at
     }
 
-    if(fields.transmission != undefined) {
+    if (fields.transmission != undefined) {
         carData.transmission = fields.transmission
     }
 
-    if(fields.available != undefined) {
+    if (fields.available != undefined) {
         carData.available = fields.available
     }
 
-    if(fields.type != undefined) {
+    if (fields.type != undefined) {
         carData.type = fields.type
     }
 
-    if(fields.year != undefined) {
+    if (fields.year != undefined) {
         carData.year = fields.year
     }
 
-    if(files.image != undefined) {
+    if (files.image != undefined) {
         await cloudinaryConfig.uploader.upload(files.image.path, { folder: "cars" }, async (err, result) => {
             if (!!err) {
                 res.end("Upload image failed.")
                 return
             }
-    
+
             carData.image = result.secure_url
-    
+
             await carModel.update(carData, {
                 where: {
                     'id': params.id
                 }
             })
-    
+
             await cloudinaryConfig.uploader.destroy(filename)
-            
+
             res.json(carData)
             return
         })
@@ -217,7 +217,7 @@ router.patch('/:id', async (req, res) => {
                 'id': params.id
             }
         })
-        
+
         res.json(carData)
     }
     return
