@@ -52,7 +52,8 @@ class App {
     let tanggalTWaktuAmbil = Date.parse(this.tanggalAmbil.value + "T" + this.waktuAmbil.value);
 
     let filter = await Binar.listCars((data) => {
-      if (tanggalTWaktuAmbil >= data.availableAt && data.capacity >= parseInt(this.jumlahPenumpang.value)) {
+      if (tanggalTWaktuAmbil >= data.availableAt && data.capacity >=
+        (this.jumlahPenumpang.value == '') ? 1 : parseInt(this.jumlahPenumpang.value)) {
         return data.availableAt && data.capacity;
       }
     });
