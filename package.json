@@ -1,0 +1,25 @@
+{
+  "name": "binar-fsw-challenge-04",
+  "version": "1.0.0",
+  "description": "Project HTTP Server dan DOM",
+  "main": "server/index.js",
+  "author": "Trivena Yuli Necia Panjaitan <trivenapanjaitan7.1.3@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "nodemon server/index.js"
+  },
+  "dependencies": {
+    "node-static": "^0.7.11",
+    "nodemon": "^2.0.20",
+    "url": "^0.11.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/synrgy-5-fsw-1-cihuy/Synrgy-Trivena-FSW1-Cihuy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/synrgy-5-fsw-1-cihuy/Synrgy-Trivena-FSW1-Cihuy/issues"
+  },
+  "homepage": "https://github.com/synrgy-5-fsw-1-cihuy/Synrgy-Trivena-FSW1-Cihuy#readme"
+}
