@@ -102,7 +102,9 @@
     border-color: #5cb85f;
 }
 .rs-calendar-table-cell-selected .rs-calendar-table-cell-content,
-.rs-btn-primary {
+.rs-btn-primary,
+.rs-btn-primary:hover,
+.rs-btn-primary:focus {
     background-color: #5cb85f;
     color: #c9e7ca;
 }

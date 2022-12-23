@@ -1,44 +1,57 @@
-import { useRef } from "react"
+import { useRef} from "react"
 import { useDispatch } from "react-redux"
-import { resetFilter, setFilter } from "../stores/slices/cars"
-import { DatePicker, InputPicker, InputNumber } from "rsuite"
+import { setFilter } from "../stores/slices/cars"
+import { Form, DatePicker, Button, InputPicker, Schema} from "rsuite"
 
 import "rsuite/dist/rsuite.css";
+import { FormGroup } from "react-bootstrap";
+
+const { StringType, DateType, NumberType } = Schema.Types;
+
+var tanggalAmbil, waktuAmbil, jumlahPenumpang;
+const model = Schema.Model({
+    tipe_driver: StringType()
+        .isRequired('Waktu ambil harus diisi!'),
+    tanggal_ambil: DateType()
+        .addRule((value, data) => {
+            tanggalAmbil = value.toISOString()
+        })
+        .isRequired('Tanggal ambil harus diisi!'),  
+    waktu_ambil: StringType()
+        .addRule((value, data) => {
+            waktuAmbil = value
+        })
+        .isRequired('Waktu ambil harus diisi!'),
+    jumlah_penumpang: NumberType()
+        .addRule((value, data) => {
+            jumlahPenumpang = value
+        })
+});
 
 const CariMobilSection = () => {
-    const date = useRef()
-    const time = useRef()
-    const capacity = useRef()
+    const formRef = useRef();
 
     const dispatch = useDispatch()
+    
+    const handleSubmit = () => {
+        formRef.current.checkAsync().then(result => {
+            console.log(result);
 
-    const submitHandler = (e) => {
-        e.preventDefault()
-
-        
         const filterVar = {}
         
-        if (date.current.value == '') {
-            alert('Tanggal ambil harus diisi!')
-            return
-        }
-        
-        filterVar.date = date.current.value
-        
-        if (time.current.value == 'default') {
-            alert('Waktu ambil harus diisi!')
-            return
-        }
-        
-        filterVar.time = time.current.value
+        filterVar.date = tanggalAmbil.slice(0, 10);
+        filterVar.time = waktuAmbil
 
-        if (capacity.current.value != '') {
-            filterVar.capacity = capacity.current.value
+        if(jumlahPenumpang != '') {
+            filterVar.capacity = jumlahPenumpang
         } else {
-            filterVar.capacity = ""
+            filterVar.capacity = '1'
         }
+                    
+            dispatch(setFilter(filterVar))
+            console.log(filterVar);
+    });
         
-        dispatch(setFilter(filterVar))
     }
 
     const optionsDriverType = [
@@ -56,48 +69,48 @@ const CariMobilSection = () => {
 
     return (
     <section className="container card" id="search">
-        <div className="row py-4 px-3 fs-6">
-            <form className="col-11 row" onSubmit={submitHandler}>
-                <div className="col-md-3 my-2">
-                    <label htmlFor="tipe_driver" className="form-label">
+        <Form className="row py-4 px-3 fs-6" ref={formRef} model={model} >
+            <div className="col-lg-11 row">
+                <FormGroup className="col-lg-3 my-2">
+                    <Form.ControlLabel controlid="tipe_driver" className="form-label">
                         Tipe Driver
-                    </label>
-                    <InputPicker placeholder="Pilih Tipe Driver" data={optionsDriverType} size="lg"
-                        id="tipe_driver" name="tipe-driver" className="w-100"/>
-                </div>
-                <div className="col-md-3 my-2">
-                    <label htmlFor="tanggal_ambil" className="form-label">
+                    </Form.ControlLabel>
+                    <Form.Control accepter={InputPicker} checkAsync placeholder="Pilih Tipe Driver" data={optionsDriverType} size="lg"
+                        id="tipe_driver" name="tipe_driver" className="w-100"/>
+                </FormGroup>
+                <FormGroup className="col-lg-3 my-2">
+                    <Form.ControlLabel controlid="tanggal_ambil" className="form-label">
                         Tanggal
-                    </label>
-                    <DatePicker placeholder="Pilih Tanggal" ref={date} size="lg" className="w-100"
-                        id="tanggal_ambil" name="tanggal-ambil" />
-                </div>
-                <div className="col-md-3 my-2">
-                    <label htmlFor="waktu_ambil" className="form-label">
+                    </Form.ControlLabel>
+                    <Form.Control accepter={DatePicker} checkAsync placeholder="Pilih Tanggal" size="lg" className="w-100"
+                        id="tanggal_ambil" name="tanggal_ambil" />
+                </FormGroup>
+                <FormGroup className="col-lg-3 my-2">
+                    <Form.ControlLabel controlid="waktu_ambil" className="form-label">
                         Waktu Jemput/Ambil
-                    </label>
-                    <InputPicker placeholder="Pilih waktu jemput" ref={time} data={optionTime} size="lg"
-                        id="waktu_ambil" name="waktu-ambil" className="w-100" />
-                </div>
-                <div className="col-md-3 my-2">
-                    <label htmlFor="jumlah_penumpang" className="form-label">
+                    </Form.ControlLabel>
+                    <Form.Control accepter={InputPicker} checkAsync placeholder="Pilih waktu jemput" data={optionTime} size="lg"
+                        id="waktu_ambil" name="waktu_ambil" className="w-100" />
+                </FormGroup>
+                <FormGroup className="col-lg-3 my-2">
+                    <Form.ControlLabel controlid="jumlah_penumpang" className="form-label">
                         Jumlah Penumpang (optional)
                         <i className="fa fa-user"></i>
-                    </label>
-                    <InputNumber placeholder="Jumlah Penumpang" ref={capacity} size="lg"
-                        id="jumlah_penumpang" name="jumlah-penumpang" className="W-100" />
-                </div>
-            </form>
-            <div className="col-md-1 pe-0 my-2">
-                <div className="col-12 d-grid">
-                    <label className="form-label">
-                        &nbsp;
-                    </label>
-                    <button className="px-0 btn btn-success bg-primary-lime-green-04 text-white fsw-bolder"
-                        id="cari_mobil">Cari Mobil</button>
-                </div>
+                    </Form.ControlLabel>
+                    <Form.Control checkAsync placeholder="Jumlah Penumpang" size="lg"
+                        id="jumlah_penumpang" name="jumlah_penumpang" className="w-100" />
+                </FormGroup>
             </div>
-        </div>
+            <div className="col-lg-1 pe-0 my-2">
+                <FormGroup className="col-12 d-grid">
+                    <Form.ControlLabel className="form-label">
+                        &nbsp;
+                    </Form.ControlLabel>
+                    <Button type="submit" className="w-100 px-0 btn btn-success bg-primary-lime-green-04 text-white fsw-bolder"
+                        id="cari_mobil" onClick={handleSubmit}>Cari Mobil</Button>
+                </FormGroup>
+            </div>
+        </Form>
     </section>
     )
 }
