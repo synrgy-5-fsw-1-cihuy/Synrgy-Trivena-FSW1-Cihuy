@@ -35,21 +35,21 @@ const CariMobilSection = () => {
     
     const handleSubmit = () => {
         formRef.current.checkAsync().then(result => {
-            console.log(result);
+        console.log(result);
 
-        const filterVar = {}
+        const filterVar = {};
         
         filterVar.date = tanggalAmbil.slice(0, 10);
-        filterVar.time = waktuAmbil
+        filterVar.time = waktuAmbil;
 
-        if(jumlahPenumpang != '') {
-            filterVar.capacity = jumlahPenumpang
+        if (jumlahPenumpang != undefined) {
+            filterVar.capacity = jumlahPenumpang;
         } else {
-            filterVar.capacity = '1'
+            filterVar.capacity = '1';
         }
                     
-            dispatch(setFilter(filterVar))
-            console.log(filterVar);
+        dispatch(setFilter(filterVar));
+        console.log(filterVar);
     });
         
     }
