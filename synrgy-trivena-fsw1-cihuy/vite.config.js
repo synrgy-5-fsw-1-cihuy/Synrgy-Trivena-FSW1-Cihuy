@@ -13,6 +13,6 @@ export default defineConfig({
         }),
     ],
     optimizeDeps: {
-        include: ["jquery"],
+        include: ["jquery", "rsuite"],
     },
 })

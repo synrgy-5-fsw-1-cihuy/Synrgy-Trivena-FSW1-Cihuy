@@ -1,6 +1,6 @@
 const MainSection = () => {
     return (
-        <section className="container-xxl px-0" id="hero-section">
+        <section className="container-xxl px-0 bg-hero-section" id="hero-section">
             <div className="row">
                 <div className="col-md-6 my-auto">
                     <div className="row">

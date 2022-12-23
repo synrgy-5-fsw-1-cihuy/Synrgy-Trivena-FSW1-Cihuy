@@ -1,7 +1,13 @@
+import styled from "styled-components"
+const Img = styled.img`
+    height: 250px;
+    object-fit: cover
+`
+
 const CarsContainers = ({ car }) => {
     return (
-    <div className="card p-3 my-4">
-        <img src={car.image} className="card-img-top w-100" alt={car.image} height="300" />
+    <div className="card col-12 col-lg-4 p-3 my-4">
+        <Img src={car.image} className="card-img-top w-100" alt={car.image} />
         <div className="card-body mt-3 d-grid h-100">
             <h5>{car.manufacture} {car.model} / {car.type}</h5>
             <h4 className="fw-bold">Rp {car.rentPerDay} / hari</h4>
@@ -25,7 +31,7 @@ const CarsContainers = ({ car }) => {
                 </p>
             </div>
             
-            <a href="#" className="btn btn-success py-3 bg-primary-lime-green-04 text-white" >Pilih Mobil</a>
+            <a href="#" className="btn btn-success py-2 bg-primary-lime-green-04 text-white">Pilih Mobil</a>
         </div>
     </div>
     )

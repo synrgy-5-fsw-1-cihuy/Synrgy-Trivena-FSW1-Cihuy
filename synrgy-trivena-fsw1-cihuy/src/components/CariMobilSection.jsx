@@ -1,6 +1,9 @@
 import { useRef } from "react"
 import { useDispatch } from "react-redux"
 import { resetFilter, setFilter } from "../stores/slices/cars"
+import { DatePicker, InputPicker, InputNumber } from "rsuite"
+
+import "rsuite/dist/rsuite.css";
 
 const CariMobilSection = () => {
     const date = useRef()
@@ -42,6 +45,19 @@ const CariMobilSection = () => {
         dispatch(resetFilter)
     }
 
+    const optionsDriverType = [
+        { value: 'dengan_sopir', label: 'Dengan Sopir' },
+        { value: 'tanpa_sopir', label: 'Tanpa Sopir (Lepas Kunci)' },
+    ]
+
+    const optionTime = [
+        { value: '08:00', label: '08:00' },
+        { value: '09:00', label: '09:00' },
+        { value: '10:00', label: '10:00' },
+        { value: '11:00', label: '11:00' },
+        { value: '12:00', label: '12:00' },
+    ]
+
     return (
     <section className="container card" id="search">
         <div className="row py-4 px-3 fs-6">
@@ -50,38 +66,30 @@ const CariMobilSection = () => {
                     <label htmlFor="tipe_driver" className="form-label">
                         Tipe Driver
                     </label>
-                    <select className="chosen-select-no-single fs-6" id="tipe_driver" name="tipe-driver">
-                        <option value="default" className="d-none">Pilih Tipe Driver</option>
-                        <option value="1">Dengan Sopir</option>
-                        <option value="2">Tanpa Sopir (Lepas Kunci)</option>
-                    </select>
+                    <InputPicker placeholder="Pilih Tipe Driver" data={optionsDriverType} size="lg"
+                        id="tipe_driver" name="tipe-driver" className="w-100"/>
                 </div>
                 <div className="col-md-3">
                     <label htmlFor="tanggal_ambil" className="form-label">
                         Tanggal
                     </label>
-                    <input className="form-select text-secondary" id="tanggal_ambil" type="text" name="tanggal-ambil" placeholder="Pilih Tanggal" ref={date}/>
+                    <DatePicker placeholder="Pilih Tanggal" ref={date} size="lg" className="w-100"
+                        id="tanggal_ambil" name="tanggal-ambil" />
                 </div>
                 <div className="col-md-3">
                     <label htmlFor="waktu_ambil" className="form-label">
                         Waktu Jemput/Ambil
                     </label>
-                    <select id="waktu_ambil" name="waktu-ambil" className="chosen-select-no-single time" ref={time}>
-                        <option value="default" className="d-none">Pilih waktu jemput</option>
-                        <option>08:00</option>
-                        <option>09:00</option>
-                        <option>10:00</option>
-                        <option>11:00</option>
-                        <option>12:00</option>
-                    </select>
+                    <InputPicker placeholder="Pilih waktu jemput" ref={time} data={optionTime} size="lg"
+                        id="waktu_ambil" name="waktu-ambil" className="w-100" />
                 </div>
                 <div className="col-md-3">
                     <label htmlFor="jumlah_penumpang" className="form-label">
                         Jumlah Penumpang (optional)
                         <i className="fa fa-user"></i>
                     </label>
-                    <input className="form-select" id="jumlah_penumpang" type="number" name="jumlah-penumpang"
-                        placeholder="Jumlah Penumpang" ref={capacity}/>
+                    <InputNumber placeholder="Jumlah Penumpang" ref={capacity} size="lg"
+                        id="jumlah_penumpang" name="jumlah-penumpang" className="W-100" />
                 </div>
             </form>
             <div className="col-1 pe-0">

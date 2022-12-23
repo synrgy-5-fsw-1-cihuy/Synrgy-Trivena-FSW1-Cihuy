@@ -13,7 +13,7 @@ const GettingStartedSection = () => {
             </div>
             <div className="col-md-2"></div>
         </div>
-        <a href="" className="btn bg-primary-lime-green-04 text-white fw-bold mt-4 mb-2">
+        <a href="./cars" className="btn bg-primary-lime-green-04 text-white fw-bold mt-4 mb-2">
             Mulai Sewa Mobil
         </a>
     </section>

@@ -38,7 +38,6 @@
 .owl-dots {
     display: none;
 }
-
 @media only screen and (max-width: 768px) {
     .why-us {
         text-align: center;
@@ -52,7 +51,6 @@
         margin: 1rem !important;
     }
 }
-
 .owl-prev,
 .owl-next {
     width: 3rem !important;
@@ -60,74 +58,64 @@
     border-radius: 100% !important;
     border: 1px solid #c4c4c4 !important;
 }
-
 .owl-prev span,
 .owl-next span {
     font-weight: bolder;
     font-size: xx-large;
 }
-
 .owl-theme .owl-nav [class*="owl-"]:hover {
     background: #5cb85f !important;
 }
 
-.form-control:focus {
-    border-color: #5cb85f !important;
-    box-shadow: 0 0 0 0.25rem rgba(92, 184, 95, 0.651) !important;
-    color: rgb(0, 0, 0) !important;
-}
-
 #search {
-    margin-top: -5rem;
+    margin-top: -2rem;
 }
 
-.chosen-container {
-    font-size: 1rem !important;
-    width: 100% !important;
+.rs-picker-toggle-active,
+.rs-picker.rs-picker-focused,
+.rs-calendar-table-cell-is-today .rs-calendar-table-cell-content {
+    -webkit-box-shadow: inset 0 0 0 1px #5cb85f;
+    box-shadow: inset 0 0 0 1px #5cb85f;
 }
-
-.chosen-container-single .chosen-single {
-    padding: 0.5rem 0.5rem 2rem;
-    color: #8a8a8a;
-}
-
-.chosen-container-active.chosen-with-drop .chosen-single {
-    border: 1px solid #5cb85f;
-}
-
-.chosen-results {
-    border-top: 1px solid #5cb85f;
-}
-
-.chosen-container-active .chosen-single {
-    color: #3c3c3c;
-    border: 1px solid #5cb85f;
-}
-
-.chosen-container .chosen-results li.highlighted {
-    /* background-image: url(../images/svg/wib.svg) !important; */
-    /* background-position: center; */
+.rs-picker-select-menu-item.rs-picker-select-menu-item-active,
+.rs-picker:not(.rs-picker-disabled):hover,
+.rs-picker.rs-picker-focused,
+.rs-picker-menu
+    .rs-calendar
+    .rs-calendar-table-cell:hover
+    .rs-calendar-table-cell-content,
+.rs-picker-select-menu-item:hover,
+.rs-picker-select-menu-item:focus,
+.rs-picker-select-menu-item.rs-picker-select-menu-item-focus {
     background-color: rgba(92, 184, 95, 0.187);
     background-image: linear-gradient(#c9e7ca 20%, #c9e7ca 90%);
     color: #5cb85f;
 }
-
-.chosen-container .chosen-results {
-    margin: 0;
-    padding: 0;
+.rs-picker-default:not(.rs-picker-disabled) .rs-picker-toggle:hover,
+.rs-picker-default:not(.rs-picker-disabled) .rs-picker-toggle:focus,
+.rs-picker-default:not(.rs-picker-disabled) .rs-picker-toggle-active,
+.rs-input-group:not(.rs-input-group-disabled):hover,
+.rs-input-group:not(.rs-input-group-disabled).rs-input-group-focus,
+.rs-input-group:focus-within,
+.rs-picker:not(.rs-picker-disabled):hover,
+.rs-picker.rs-picker-focused {
+    border-color: #5cb85f;
+}
+.rs-calendar-table-cell-selected .rs-calendar-table-cell-content,
+.rs-btn-primary {
+    background-color: #5cb85f;
+    color: #c9e7ca;
+}
+.rs-picker-has-value .rs-btn .rs-picker-toggle-value,
+.rs-picker-has-value .rs-picker-toggle .rs-picker-toggle-value {
+    color: #3c3c3c;
 }
 
-.chosen-container .chosen-results li {
-    padding: 0.5rem;
-}
-
-.chosen-container-single .chosen-single div,
-.chosen-container-single .chosen-single div {
-    width: 15%;
-}
-
-.chosen-container-active.chosen-with-drop .chosen-single div {
-    width: 15%;
+.rs-input-group:not(.rs-input-group-disabled):hover,
+.rs-input-group:not(.rs-input-group-disabled).rs-input-group-focus,
+.rs-input-group:focus-within,
+.rs-theme-high-contrast .rs-calendar-time-dropdown-cell:hover {
+    outline: #5cb85f;
 }
 
 .chosen-container-single .chosen-single div b {
