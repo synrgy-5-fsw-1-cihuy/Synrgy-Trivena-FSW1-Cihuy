@@ -2,7 +2,7 @@ const Navbar = () => {
     return (
         <nav className="container-sm navbar navbar-expand-sm bg-hero-section">
             <div className="container-sm ps-0">
-                <a className="navbar-brand py-3 px-5 bg-primary-dark-blue-04" href="#hero-section"></a>
+                <a className="navbar-brand py-3 px-5 bg-primary-dark-blue-04" href="./"></a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"
                     aria-controls="offcanvas">
                     <span className="navbar-toggler-icon"></span>
