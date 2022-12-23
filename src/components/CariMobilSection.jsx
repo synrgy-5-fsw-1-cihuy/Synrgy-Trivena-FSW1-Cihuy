@@ -41,10 +41,6 @@ const CariMobilSection = () => {
         dispatch(setFilter(filterVar))
     }
 
-    const resetHandler = () => {
-        dispatch(resetFilter)
-    }
-
     const optionsDriverType = [
         { value: 'dengan_sopir', label: 'Dengan Sopir' },
         { value: 'tanpa_sopir', label: 'Tanpa Sopir (Lepas Kunci)' },
@@ -98,9 +94,7 @@ const CariMobilSection = () => {
                         &nbsp;
                     </label>
                     <button className="px-0 btn btn-success bg-primary-lime-green-04 text-white fsw-bolder"
-                            id="cari_mobil">Cari Mobil</button>
-                    <button className="px-0 btn btn-secondary text-white fsw-bolder"
-                        id="reset_cari_mobil" onClick={resetHandler}> Reset </button>
+                        id="cari_mobil">Cari Mobil</button>
                 </div>
             </div>
         </div>
