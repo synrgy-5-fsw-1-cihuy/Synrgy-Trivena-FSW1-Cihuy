@@ -58,28 +58,28 @@ const CariMobilSection = () => {
     <section className="container card" id="search">
         <div className="row py-4 px-3 fs-6">
             <form className="col-11 row" onSubmit={submitHandler}>
-                <div className="col-md-3">
+                <div className="col-md-3 my-2">
                     <label htmlFor="tipe_driver" className="form-label">
                         Tipe Driver
                     </label>
                     <InputPicker placeholder="Pilih Tipe Driver" data={optionsDriverType} size="lg"
                         id="tipe_driver" name="tipe-driver" className="w-100"/>
                 </div>
-                <div className="col-md-3">
+                <div className="col-md-3 my-2">
                     <label htmlFor="tanggal_ambil" className="form-label">
                         Tanggal
                     </label>
                     <DatePicker placeholder="Pilih Tanggal" ref={date} size="lg" className="w-100"
                         id="tanggal_ambil" name="tanggal-ambil" />
                 </div>
-                <div className="col-md-3">
+                <div className="col-md-3 my-2">
                     <label htmlFor="waktu_ambil" className="form-label">
                         Waktu Jemput/Ambil
                     </label>
                     <InputPicker placeholder="Pilih waktu jemput" ref={time} data={optionTime} size="lg"
                         id="waktu_ambil" name="waktu-ambil" className="w-100" />
                 </div>
-                <div className="col-md-3">
+                <div className="col-md-3 my-2">
                     <label htmlFor="jumlah_penumpang" className="form-label">
                         Jumlah Penumpang (optional)
                         <i className="fa fa-user"></i>
@@ -88,7 +88,7 @@ const CariMobilSection = () => {
                         id="jumlah_penumpang" name="jumlah-penumpang" className="W-100" />
                 </div>
             </form>
-            <div className="col-1 pe-0">
+            <div className="col-md-1 pe-0 my-2">
                 <div className="col-12 d-grid">
                     <label className="form-label">
                         &nbsp;

@@ -60,27 +60,25 @@ const CarsContainer = () => {
 
     return (
         <>
-            <section className="pt-5">
-                <div className="container pt-5">
-                    <div id="cars-container" className="row">
-                        {isLoading ? (
-                            <p className="w-full text-center col-12">
-                                <b>Loading...</b>
-                            </p>
-                        ) : cars.length > 0 ? (
-                            <>
-                                {cars.map((car) => (
-                                    <CarsContainers key={car.id} car={car} />
-                                ))}
-                            </>
-                        ) : (
-                            <p className="w-full text-center col-12">
-                                <b>No Car Available</b>
-                            </p>
-                        )}
-                    </div>
+            <section className="container pt-5">
+                <div id="cars-container" className="row">
+                    {isLoading ? (
+                        <p className="w-full text-center col-12">
+                            <b>Loading...</b>
+                        </p>
+                    ) : cars.length > 0 ? (
+                        <>
+                            {cars.map((car) => (
+                                <CarsContainers key={car.id} car={car} />
+                            ))}
+                        </>
+                    ) : (
+                        <p className="w-full text-center col-12">
+                            <b>No Car Available</b>
+                        </p>
+                    )}
                 </div>
-            </section>
+             </section>
         </>
     )
 }
