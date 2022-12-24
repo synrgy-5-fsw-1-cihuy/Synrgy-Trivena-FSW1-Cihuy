@@ -106,8 +106,8 @@ const CariMobilSection = () => {
                     <Form.ControlLabel className="form-label">
                         &nbsp;
                     </Form.ControlLabel>
-                    <Button type="submit" className="w-100 px-0 btn btn-success bg-primary-lime-green-04 text-white fsw-bolder"
-                        id="cari_mobil" onClick={handleSubmit}>Cari Mobil</Button>
+                    <Button onClick={handleSubmit} type="submit" className="w-100 px-0 btn btn-success bg-primary-lime-green-04 text-white fsw-bolder"
+                        id="cari_mobil" >Cari Mobil</Button>
                 </FormGroup>
             </div>
         </Form>
